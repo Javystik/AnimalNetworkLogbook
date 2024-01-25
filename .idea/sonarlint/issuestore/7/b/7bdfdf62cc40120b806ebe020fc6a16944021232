@@ -1,0 +1,8 @@
+
+a
+java:S2583"DChange this condition so that it does not always evaluate to "false"(²íŒ8ëãŞàÓ1
+—
+java:S2159"zRemove this call to "equals"; comparisons against null always return false; consider using '== null' to check for nullity.(²íŒ8íãŞàÓ1
+E	java:S108")Either remove or fill this block of code.(²íŒ8îãŞàÓ1
+P
+java:S1128".Remove this unused import 'java.util.Scanner'.(ÒÜÅ¸úÿÿÿÿ8ÍÁßàÓ1
