@@ -1,7 +1,6 @@
 package com.zoi4erom.animalnetworkbook.persistence.entity;
 
-import com.zoi4erom.animalnetworkbook.persistence.exception.ExceptionTemplate;
-import com.zoi4erom.animalnetworkbook.persistence.validation.Validator;
+import java.util.List;
 import java.util.UUID;
 
 public class Shelter extends Entity{
@@ -10,34 +9,49 @@ public class Shelter extends Entity{
 	private final String phone;
 	private int numbersOfAnimals;
 	private final int capacityOfAnimals;
+	private List<Animal> animals;
 
 	public Shelter(UUID id, String name, String address, String phone, int numbersOfAnimals,
-	    int capacityOfAnimals) {
+	    int capacityOfAnimals, List<Animal> animals) {
 		super(id);
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
 		this.numbersOfAnimals = numbersOfAnimals;
 		this.capacityOfAnimals = capacityOfAnimals;
+		this.animals = animals;
 	}
 
 	public void setName(String name) {
-		final String FIELD_LOGIN = "логіну";
-
-		if (Validator.isFieldBlankValidate(name)){
-			errors.add(ExceptionTemplate.EMPTY_FIELD_EXCEPTION.getTemplate().formatted(FIELD_LOGIN));
-		}
-		if(Validator.isFieldSizeValidate(name, 4, 52)){
-			errors.add((ExceptionTemplate.TOO_SHORT_LONG_EXCEPTION.getTemplate().formatted(FIELD_LOGIN, 4, 52)));
-		}
-		if (!this.errors.isEmpty()) {
-			System.out.println("Помилки валідації: " + errors);
-			return;
-		}
 		this.name = name;
 	}
+
 	public void setNumbersOfAnimals(int numbersOfAnimals) {
 		this.numbersOfAnimals = numbersOfAnimals;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public int getNumbersOfAnimals() {
+		return numbersOfAnimals;
+	}
+
+	public int getCapacityOfAnimals() {
+		return capacityOfAnimals;
+	}
+
+	public List<Animal> getAnimals() {
+		return animals;
 	}
 
 	@Override

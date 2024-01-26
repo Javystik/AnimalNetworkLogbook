@@ -1,7 +1,5 @@
 package com.zoi4erom.animalnetworkbook.persistence.entity;
 
-import com.zoi4erom.animalnetworkbook.persistence.exception.ExceptionTemplate;
-import com.zoi4erom.animalnetworkbook.persistence.validation.Validator;
 import java.util.UUID;
 
 public class Animal extends Entity{
@@ -23,24 +21,12 @@ public class Animal extends Entity{
 		this.shelter = shelter;
 	}
 
-	public String getName() {
-		return name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setName(String name) {
-		final String FIELD_NAME = "назви";
-
-		if (Validator.isFieldBlankValidate(name)){
-			errors.add(ExceptionTemplate.EMPTY_FIELD_EXCEPTION.getTemplate().formatted(FIELD_NAME));
-		}
-		if(Validator.isFieldSizeValidate(name, 4, 38)){
-			errors.add((ExceptionTemplate.TOO_SHORT_LONG_EXCEPTION.getTemplate().formatted(FIELD_NAME, 2, 38)));
-		}
-		if (!this.errors.isEmpty()) {
-			System.out.println("Помилки валідації: " + errors);
-			return;
-		}
-		this.name = name;
+	public String getName() {
+		return name;
 	}
 
 	public int getAge() {
